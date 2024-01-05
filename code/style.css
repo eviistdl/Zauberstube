@@ -1,0 +1,34 @@
+.html {
+    background-color: blueviolet;
+}
+
+.href {
+    color: red;
+}
+
+.Anleitung {
+    width: 550px;
+    position: absolute;
+    left: calc((100% - 550px)/2);
+    top:calc((100% - 450px)/2);
+    font-family:Chiller;
+    font-size: 18pt; 
+}
+
+.button {
+    background-color: black;
+}
+.Rezept {
+    width: 350px;
+    position: absolute;
+    top: calc((100% - 400px)/2);
+    left: 50px;
+    font-family:Chiller;
+    font-size: 15pt;
+}
+
+.Trank {
+    width: 700px;
+    position:absolute;
+    right: 50px;
+}
