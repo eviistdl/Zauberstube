@@ -1,9 +1,8 @@
 .html {
     background-color: blueviolet;
 }
-
-.href {
-    color: red;
+body { background: 
+    rgb(16, 28, 17);
 }
 
 .Anleitung {
@@ -15,9 +14,6 @@
     font-size: 18pt; 
 }
 
-.button {
-    background-color: black;
-}
 .Rezept {
     width: 350px;
     position: absolute;
@@ -27,8 +23,29 @@
     font-size: 15pt;
 }
 
-.Trank {
-    width: 700px;
+.unten {
+    position: absolute;
+    width: 500px;
+    z-index: 0;
+    right:calc((100% - 800px)/2);
+}
+.oben {
+    position: absolute;
+    width: 500px;
+    z-index: 1;
+    right:calc((100% - 800px)/2);
+}
+
+.Trank-img {
+    position: absolute;
+    z-index: 0;
+    width: 600px;
+    height: 600px;
+}
+
+.ingredients-img {
     position:absolute;
-    right: 50px;
+    right:calc((100% - 680px)/2);
+    width:600px;
+    height:600px;
 }
