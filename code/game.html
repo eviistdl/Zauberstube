@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="script.js"></script>
+    <title> Die Zauberstube</title>
+    <script src="/script/eia1_voyager_sdk.min.js" defer></script>
+    <script src="/script/dat.gui.min.js" defer></script>
+    <script defer src="/script/script2.js" defer></script>
     <link rel = "stylesheet" href="style.css">
 </head>
 
@@ -13,26 +15,40 @@
     <button type="button" onclick="window.location.href ='index.html'"> Zurück zur <br> Anleitung</a> </button>
 
 <!-- 1. Block links für Trank Rezept Text und Buttons zur Zutaten Auswahl-->
-   <div class="Rezept">
-    <p> "Hier steht das Rezept des Trankes bla bla bla bla bla bla bla ..................." </p>
+   <div class="Rezept" id="RezeptDiv">
+    <p> bla bla bla </p>
 
-    <button class="Auswahl" id="Zutat1" type="button" >Zutat 1</button>
-    <button class="Auswahl" id="Zutat2" type="button" >Zutat 2</button>
-    <button class="Auswahl" id="Verschluss" type="button" >Verschluss</button>
+    <button class="Auswahl" id="ingredient1_button" type="button" >Zutat 1</button>
+    <button class="Auswahl" id="ingredient2_button" type="button" >Zutat 2</button>
+    <button class="Auswahl" id="Verscchluss_button"type="button" >Verschluss</button>
+    <button class="Auswahl" id="fertig_button"type="button" >DONE</button>
 
    </div>
 
 <!-- Trank div, mit Klasse, damit Bild auf unterster Ebene erscheint-->
     <div class="unten">
-        <img src="/img/Trank.png" alt="Potion Bottle" class="Trank-img">
+        <img class="trank" src="/img/Trank.png" alt="Potion Bottle" >
     </div>
-<!-- Ingredient divs mit Klasse:oben, damit sie nicht verdeckt werden-->
+<!-- Ingredient divs mit Klasse:oben, damit sie nicht verdeckt werden; IDs um von der Funktion gefunden zu werden.-->
     <div class="oben">
-        <img class="ingredients-img" src="/img/Kristal.png" alt="Kristal">
+        <img id="Kristal" class="ingredient1" src="/img/Kristal.png">
+    </div>
+    <div class="oben">
+        <img id="Kralle" class="ingredient1" src="/img/Kralle.png">
+    </div>
+    <div class="oben">
+        <img id="Zahn" class="ingredient1" src="/img/Zahn.png">
     </div>
 
+
     <div class="oben">
-        <img class="ingredients-img" src="/img/Haar.png" alt="Kristal">
+        <img id="Haar" class="ingredient2" src="/img/Haar.png">
+    </div>
+    <div class="oben">
+        <img id="Feder" class="ingredient2" src="/img/Feder.png">
+    </div>
+    <div class="oben">
+        <img id="Bluete" class="ingredient2" src="/img/Bluete.png">
     </div>
 
    

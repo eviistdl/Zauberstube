@@ -12,6 +12,7 @@ body { background:
     top:calc((100% - 450px)/2);
     font-family:Chiller;
     font-size: 18pt; 
+    color: azure;
 }
 
 .Rezept {
@@ -21,6 +22,7 @@ body { background:
     left: 50px;
     font-family:Chiller;
     font-size: 15pt;
+    color: azure;
 }
 
 .unten {
@@ -36,16 +38,24 @@ body { background:
     right:calc((100% - 800px)/2);
 }
 
-.Trank-img {
+.trank {
     position: absolute;
     z-index: 0;
     width: 600px;
     height: 600px;
 }
 
-.ingredients-img {
+.ingredient1 {
     position:absolute;
     right:calc((100% - 680px)/2);
     width:600px;
     height:600px;
+    visibility: hidden;
+}
+.ingredient2 {
+    position:absolute;
+    right:calc((100% - 680px)/2);
+    width:600px;
+    height:600px;
+    visibility: hidden;
 }
