@@ -45,16 +45,11 @@ body { background:
     height: 600px;
 }
 
-.ingredient1 {
+.ingredient1,
+.ingredient2,
+.Seal{
     position:absolute;
-    right:calc((100% - 680px)/2);
-    width:600px;
-    height:600px;
-    visibility: hidden;
-}
-.ingredient2 {
-    position:absolute;
-    right:calc((100% - 680px)/2);
+    right:calc((100% - 700px)/2);
     width:600px;
     height:600px;
     visibility: hidden;
