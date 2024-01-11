@@ -6,7 +6,7 @@
     <title> Die Zauberstube</title>
     <script src="/script/eia1_voyager_sdk.min.js" defer></script>
     <script src="/script/dat.gui.min.js" defer></script>
-    <script defer src="/script/script2.js" defer></script>
+    <script defer src="/script/scriptFinal.js" defer></script>
     <link rel = "stylesheet" href="style.css">
 </head>
 
@@ -15,15 +15,14 @@
     <button type="button" onclick="window.location.href ='index.html'"> Zurück zur <br> Anleitung</a> </button>
 
 <!-- 1. Block links für Trank Rezept Text und Buttons zur Zutaten Auswahl-->
-   <div class="Rezept" id="RezeptDiv">
-    <p> bla bla bla </p>
+<div class="Rezept" id="RezeptDiv"></div>
 
+<div class="SwitchButtons" id="ButtonDiv">
     <button class="Auswahl" id="ingredient1_button" type="button" >Zutat 1</button>
     <button class="Auswahl" id="ingredient2_button" type="button" >Zutat 2</button>
     <button class="Auswahl" id="Seal_button"type="button" >Seal</button>
     <button class="Auswahl" id="fertig_button"type="button" >DONE</button>
-
-   </div>
+</div>
 
 <!-- Trank div, mit Klasse, damit Bild auf unterster Ebene erscheint-->
     <div class="unten">
