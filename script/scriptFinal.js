@@ -1,16 +1,22 @@
-let Index = -1 ;
-
-function zeigeRezeptAn() {
-    // Annahme: Du hast ein Array mit Rezepten
-    var RezeptArray = [
-        '"Weiß bin ich und knochenhart, mische mich mit Rabenhaaren. Nun gibts nicht mehr viel zu tun, mach mich zu mit Kerzenblut"',
+/*TO DO
+- checkRezept Funktion: if (Index == 0 && richtige Bilder angezeit), dann index ++ 
+    und das für jeder rezept
+    else: try again
+- Gestaltung
+- Generatives Element
+- ESP Fertig Button
+ */
+ var RezeptArray = [
+        '"Weiß bin ich und knochenhart, mische mich mit Rabenhaaren. Nun gibt es nicht mehr viel zu tun, mach mich zu mit Kerzenblut"',
         '"Schimmer, Glimmer und Veilchen Blätter. zuletzt ein Tuch von einem Ritter. "',
         '"Spitz und scharf bei Bedarf, Löckchen eines langen Barts. Es ist getan so soll es sein, bring den Stopfen von rotem Wein"'
     ];
 
-    // Holen des RezeptDiv-Elements
-    var rezeptDiv = document.getElementById("RezeptDiv");
+let Index = -1 ;
+// Holen des RezeptDiv-Elements
+var rezeptDiv = document.getElementById("RezeptDiv");
 
+function zeigeRezeptAn() {
     // Überprüfen, ob das Div-Element gefunden wurde
     if (rezeptDiv) {
         rezeptDiv.innerHTML = "<p>" + RezeptArray[Index] + "</p>";
@@ -46,9 +52,9 @@ function ImageSwitcher(choices) {
     var show_next_image = function() {
         choices[i].style.visibility = "visible";
     }
+
 }
 
-var aufgabe1 = ['Zahn', 'Feder', 'Wachs'] 
 
 //Botton Funktion definiert
 var ingredient1 = document.querySelectorAll(".ingredient1");
@@ -64,7 +70,82 @@ document.getElementById("ingredient1_button").onclick = function() { ing1_choose
 document.getElementById("ingredient2_button").onclick = function() { ing2_chooser.Next(); };
 document.getElementById("Seal_button").onclick = function() { Seal_chooser.Next(); }
 
+
+//Variablen für alle Bilder Rezept 1
+var zahn = document.getElementById("Zahn");
+var feder = document.getElementById("Feder");
+var wachs = document.getElementById("Wachs");
+//Variablen für alle Bilder Rezept 2
+var kristal = document.getElementById("Kristal");
+var bluete = document.getElementById("Bluete");
+var tuch = document.getElementById("Tuch");
+//Variablen für alle Bilder Rezept 3
+var kralle = document.getElementById("Kralle");
+var haar = document.getElementById("Haar");
+var korken = document.getElementById("Korken");
+
+var bilderRezept0 = [zahn, feder, wachs];
+var bilderRezept1 = [kristal, bluete, tuch]
+var bilderRezept2 = [kralle, haar, korken]
+
+console.log(bilderRezept0);
+
+function resetBilder() {
+    // Hier setzt du die Sichtbarkeit aller Bilder zurück
+    bilderRezept0.forEach(bild => (bild.style.visibility = "hidden"));
+    bilderRezept1.forEach(bild => (bild.style.visibility = "hidden"));
+    // Füge hier weitere Arrays hinzu, falls du weitere Bildgruppen hast
+}
+
+function checkRezept() {
+    // Überprüfen, ob das aktuelle Rezept angezeigt wird
+    if (rezeptDiv.innerHTML === "<p>" + RezeptArray[0] + "</p>") {
+        // Überprüfen, ob die 3 richtigen Bilder sichtbar sind
+        var sichtbarBildRez0 = bilderRezept0.every(bild => bild.style.visibility === "visible");
+
+        if (sichtbarBildRez0) {
+            console.log("Aufgabe Bestanden");
+            zeigeRezeptAn(); // Hier könntest du das nächste Rezept anzeigen
+        } 
+        else {
+            resetBilder;
+            console.log ("Auswahl falsch1");
+        }
+    } 
+
+    if (rezeptDiv.innerHTML === "<p>" + RezeptArray[1] + "</p>") {
+        // Überprüfen, ob die 3 richtigen Bilder sichtbar sind
+        var sichtbarBildRez1 = bilderRezept1.every(bild => bild.style.visibility === "visible");
+
+        if (sichtbarBildRez1) {
+            console.log("Letzte Aufgabe Bestanden");
+            zeigeRezeptAn(); // Hier könntest du das nächste Rezept anzeigen
+        } 
+        else {
+            resetBilder;
+            console.log ("Auswahl falsch2");
+        }
+    }
+}
+
+// Wenn das div das 2. Array enthält, wird geprüft, ob die richtiigen Bilder gezeigt werden
+if (rezeptDiv.innerHTML === "<p>" + RezeptArray[2] + "</p>") {
+    // Überprüfen, ob die 3 richtigen Bilder sichtbar sind
+    var sichtbarBildRez2 = bilderRezept2.every(bild => bild.style.visibility === "visible");
+
+    if (sichtbarBildRez2) {
+        console.log("Aufgabe Bestanden");
+        alert ("Glückwunsch! Deine Zaubertrankausbildung ist abgecshlossen!")
+    } else {
+        console.log("3");
+    }
+}
+
+
+// Eventlistener für den Fertig_Button hinzufügen
 document.getElementById("fertig_button").onclick = function() {
     // Überprüfen der Aufgabenstellung und Gewinnbedingung
-    var aufgabeBestanden = ing1_chooser.checkAufgabe() && ing2_chooser.checkAufgabe() && Seal_chooser.checkAufgabe ();
-};
+
+    checkRezept();
+
+}

@@ -18,18 +18,17 @@ body { background:
 .SwitchButtons {
     width: 350px;
     position: absolute;
-    bottom: calc((100% - 50px)/2);
-    left: 50px;
-    
+    bottom: calc((100% - 20px)/2);
+    left: 50px; 
 }
 
 .Rezept {
-    width: 350px;
+    width: 450px;
     position: absolute;
     top: calc((100% - 400px)/2);
     left: 50px;
     font-family:Chiller;
-    font-size: 15pt;
+    font-size: 23pt;
     color: azure;
 }
 
