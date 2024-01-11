@@ -59,5 +59,8 @@ body { background:
     right:calc((100% - 700px)/2);
     width:600px;
     height:600px;
-    visibility: hidden;
+}
+
+.hidden{
+    visibility:hidden;
 }

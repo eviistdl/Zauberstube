@@ -20,10 +20,8 @@ function zeigeRezeptAn() {
     // Überprüfen, ob das Div-Element gefunden wurde
     if (rezeptDiv) {
         rezeptDiv.innerHTML = "<p>" + RezeptArray[Index] + "</p>";
-    } else {
-        console.error("Div-Element mit der ID 'RezeptDiv' wurde nicht gefunden.");
-    }
-
+    } 
+    
     Index++;
 }
 
@@ -32,17 +30,19 @@ zeigeRezeptAn();
 zeigeRezeptAn();
 
 
+
 // Image Switcher um zwischen Bildern zu wählen
 function ImageSwitcher(choices) {
     var i = 0;
 
     this.Next = function() {
+        console.log("Next aufgerufen")
         hide_current_image();
         show_next_image();
     }
 
     var hide_current_image = function() {
-        choices[i].style.visibility = "hidden";
+        choices[i].style.visibility = "none";
         i += 1;
         if (i === choices.length) {
             i = 0;
@@ -50,7 +50,7 @@ function ImageSwitcher(choices) {
     }
 
     var show_next_image = function() {
-        choices[i].style.visibility = "visible";
+        choices[i].style.visibility = "block";
     }
 
 }
@@ -68,7 +68,7 @@ var Seal_chooser = new ImageSwitcher(Seal);
 
 document.getElementById("ingredient1_button").onclick = function() { ing1_chooser.Next(); };
 document.getElementById("ingredient2_button").onclick = function() { ing2_chooser.Next(); };
-document.getElementById("Seal_button").onclick = function() { Seal_chooser.Next(); }
+document.getElementById("Seal_button").onclick = function() { Seal_chooser.Next(); console.log("seal button betätigt")}
 
 
 //Variablen für alle Bilder Rezept 1
@@ -91,10 +91,10 @@ var bilderRezept2 = [kralle, haar, korken]
 console.log(bilderRezept0);
 
 function resetBilder() {
-    // Hier setzt du die Sichtbarkeit aller Bilder zurück
-    bilderRezept0.forEach(bild => (bild.style.visibility = "hidden"));
-    bilderRezept1.forEach(bild => (bild.style.visibility = "hidden"));
-    // Füge hier weitere Arrays hinzu, falls du weitere Bildgruppen hast
+    console.log("resetBilder aufgerufen");
+    bilderRezept0.forEach(bild => (bild.classList.add("hidden")));
+    bilderRezept1.forEach(bild => (bild.classList.add("hidden")));
+    bilderRezept2.forEach(bild => (bild.classList.add("hidden")));
 }
 
 function checkRezept() {
@@ -108,7 +108,6 @@ function checkRezept() {
             zeigeRezeptAn(); // Hier könntest du das nächste Rezept anzeigen
         } 
         else {
-            resetBilder;
             console.log ("Auswahl falsch1");
         }
     } 
@@ -122,7 +121,6 @@ function checkRezept() {
             zeigeRezeptAn(); // Hier könntest du das nächste Rezept anzeigen
         } 
         else {
-            resetBilder;
             console.log ("Auswahl falsch2");
         }
     }
@@ -145,7 +143,7 @@ if (rezeptDiv.innerHTML === "<p>" + RezeptArray[2] + "</p>") {
 // Eventlistener für den Fertig_Button hinzufügen
 document.getElementById("fertig_button").onclick = function() {
     // Überprüfen der Aufgabenstellung und Gewinnbedingung
-
+    resetBilder();
     checkRezept();
 
 }
