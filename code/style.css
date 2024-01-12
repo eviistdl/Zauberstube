@@ -16,11 +16,66 @@ body { background:
     letter-spacing: 0.5px ;
 }
 
+
+.timer {
+    background-color: rgb(215, 227, 227);
+    color: rgb(80, 30, 120);
+    text-align: center;
+    font-family:Chiller, Baskerville, Calibri;
+    font-size: 18pt; 
+    border-radius: 10px; 
+    padding: 5px;
+    display: inline-block; 
+    position: fixed;
+    bottom: 20px; 
+    right: 20px;
+  }
+
+.usedTimeDiv{
+    width: 450px;
+    position: absolute;
+    top: 600px;
+    left: 50px;
+    font-family:Chiller;
+    font-size: 23pt;
+    text-align: center;
+    color: azure;
+}
+
 .SwitchButtons {
-    width: 350px;
+    width: 450px;
     position: absolute;
     bottom: calc((100% - 20px)/2);
-    left: 50px; 
+    left: 100px; 
+}
+
+.Auswahl {
+    width: 450 px;
+    background-color: rgb(149, 180, 153);
+    color: rgb(13, 22, 13);
+    text-align: center;
+    font-family: Baskerville Old Face, Calibri;
+    font-size: 18pt; 
+    border-radius: 10px;
+    border: none; 
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+
+.goBack {
+    width: 70 px;
+    background-color: rgb(70, 84, 72);
+    color: rgb(13, 22, 13);
+    text-align: center;
+    font-family: Baskerville Old Face, Calibri;
+    font-size: 12pt; 
+    border-radius: 10px;
+    border: none; 
+    padding-left: 10px;
+    padding-right: 10px;
+    
 }
 
 .Rezept {
@@ -30,6 +85,7 @@ body { background:
     left: 50px;
     font-family:Chiller;
     font-size: 23pt;
+    text-align: center;
     color: azure;
 }
 
@@ -64,4 +120,42 @@ body { background:
 
 .hidden{
     visibility:hidden;
+}
+
+
+.gameEnd{
+    width: 450px;
+    position: absolute;
+    top: calc((100% - 400px)/2);
+    left: calc((100% - 450)/2);
+    font-family:Chiller;
+    font-size: 23pt;
+    color: azure;
+}
+
+.congrats {
+    visibility: hidden;
+    width: 450px;
+    position: absolute;
+    top: calc((100% - 400px)/2);
+    left: 50px;
+    font-family:Chiller;
+    font-size: 23pt;
+    text-align: center;
+    color: azure;
+}
+
+.playAgain {
+    width: 450 px;
+    background-color: rgb(149, 180, 153);
+    color: rgb(13, 22, 13);
+    text-align: center;
+    font-family: Baskerville Old Face, Calibri;
+    font-size: 18pt; 
+    border-radius: 10px;
+    border: none; 
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
 }

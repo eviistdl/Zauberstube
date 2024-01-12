@@ -11,11 +11,20 @@
 </head>
 
 <body>
-<!-- Button, der zurück zur Anleitung führt-->
-    <button type="button" onclick="window.location.href ='index.html'"> Zurück zur <br> Anleitung</a> </button>
+    <div class="timer">
+        <span id="minuten">0</span> min
+        <span id="sekunden">0</span> sek 
+      </div>
+
+<!-- Button zurück zur Anleitung -->
+    <button class="goBack" type="button" onclick="window.location.href ='index.html'"> Zurück zur <br> Anleitung</a> </button>
 
 <!-- 1. Block links für Trank Rezept Text und Buttons zur Zutaten Auswahl-->
 <div class="Rezept" id="RezeptDiv"></div>
+<div class="congrats" id="congratsDiv" >
+    <p> "Herzlichen Glückwunsch, du hast deine Trank-Brauerei Prüfung bestanden! </p>
+    <button class="playAgain" type="button" onclick="window.location.href ='game.html'"> Spiele <br> nochmal</a> </button>
+</div>
 
 <div class="SwitchButtons" id="ButtonDiv">
     <button class="Auswahl" id="ingredient1_button" type="button" >Zutat 1</button>
@@ -24,14 +33,16 @@
     <button class="Auswahl" id="fertig_button"type="button" >DONE</button>
 </div>
 
+<div class="wrongBilder" id="wrongBilder"> </div>
+<div id="usedTimeDiv" class="usedTimeDiv"></div>
+
 <!-- Trank div, mit Klasse, damit Bild auf unterster Ebene erscheint-->
     <div class="unten">
         <img class="trank" src="/img/Trank.png" alt="Potion Bottle" >
     </div>
 
 
-<!-- Ingredient divs mit Klasse:oben, damit sie nicht verdeckt werden; IDs um von der Funktion gefunden zu werden.-->
-    <div class="ingredient1">  </div>
+<!-- Ingredient 1 Bilder -->
     <div class="oben">
         <img id="Kristal" class="ingredient1" src="/img/Kristal.png">
     </div>

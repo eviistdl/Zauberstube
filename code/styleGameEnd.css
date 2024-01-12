@@ -1,9 +1,0 @@
-.gameEnd{
-    width: 450px;
-    position: absolute;
-    top: calc((100% - 400px)/2);
-    left: calc((100% - 450)/2);
-    font-family:Chiller;
-    font-size: 23pt;
-    color: azure;
-}
