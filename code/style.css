@@ -2,17 +2,18 @@
     background-color: blueviolet;
 }
 body { background: 
-    rgb(16, 28, 17);
+    rgb(13, 22, 13);
 }
 
 .Anleitung {
     width: 550px;
     position: absolute;
     left: calc((100% - 550px)/2);
-    top:calc((100% - 450px)/2);
-    font-family:Chiller;
+    top: 20px;
+    font-family:Chiller, Baskerville, Calibri;
     font-size: 18pt; 
-    color: azure;
+    color: rgb(194, 207, 207);
+    letter-spacing: 0.5px ;
 }
 
 .SwitchButtons {
