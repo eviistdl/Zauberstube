@@ -70,11 +70,20 @@ function idset(id, string) {
     // ... (dein weiterer Code)
   }
   
+
+  function handleTouch13() {
+    console.log("handle 13 wurde berührt")
+    checkRezept();
+    resetBilder();
+}
+
+/*
   // Eventlistener für den Fertig_Button hinzufügen
   document.getElementById("fertig_button").onclick = function () {
     checkRezept();
     resetBilder();
   };
+  */
   
   // Aktualisiere die Stopuhr alle 1000 Millisekunden (1 Sekunde)
   setInterval(stoppuhr.timer, 1000);
