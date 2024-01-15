@@ -31,10 +31,11 @@ body { background:
     right: 20px;
   }
 
+
 .usedTimeDiv{
     width: 450px;
     position: absolute;
-    top: 600px;
+    top: calc((100% - 20px)/2);
     left: 50px;
     font-family:Chiller;
     font-size: 23pt;
@@ -76,6 +77,34 @@ body { background:
     padding-left: 10px;
     padding-right: 10px;
     
+}
+
+
+.alertWrong{
+    position: absolute;
+    width: 50px;
+    width: 450px;
+    position: absolute;
+    bottom: calc((100% - 300px)/2);
+    left: 20px; 
+    font-family:Chiller, Baskerville Old Face, Calibri;
+    font-size: 30pt;
+    text-align: center;
+    color: rgb(207, 109, 222);
+}
+
+.alertRight{
+    background-color: rgb(13, 22, 13);
+    position: absolute;
+    width: 50px;
+    width: 450px;
+    position: absolute;
+    bottom: calc((100% - 300px)/2);
+    left: 20px; 
+    font-family:Chiller, Baskerville Old Face, Calibri;
+    font-size: 23pt;
+    text-align: center;
+    color: rgb(86, 243, 105);
 }
 
 .Rezept {

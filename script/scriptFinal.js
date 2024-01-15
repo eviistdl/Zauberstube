@@ -1,7 +1,7 @@
+//Funktion für Stoppuhr, id und string zum zuordnen von min oder sek
 function idset(id, string) {
     document.getElementById(id).innerHTML = string;
   }
-  
   var stoppuhr = (function() {
     var stop = 1;
     var mins = 0;
@@ -9,17 +9,21 @@ function idset(id, string) {
   
     return {
       start: function() {
+        //stop Wert auf 0, um zu starten
         stop = 0;
       },
       stop: function() {
+        //stop Wert zurück auf 1, um zu stoppen
         stop = 1;
       },
       clear: function() {
+        // Zeit zurück auf 0
         stoppuhr.stop();
         mins = 0;
         secs = 0;
         stoppuhr.html();
       },
+      //sekunden zählen hoch, bis sie 60 erreichen, dann zählen die minuten hoch
       timer: function() {
         if (stop === 0) {
           secs++;
@@ -36,12 +40,12 @@ function idset(id, string) {
         secs = sekunden;
         stoppuhr.html();
       },
-      getMins: function() {
+      getMins: function() { //um Minuten und Sekunden Daten zu holen
         return mins;
-    },
-    getSecs: function() {
+      },
+      getSecs: function() {
         return secs;
-    },
+      },
       html: function() {
         idset("minuten", mins);
         idset("sekunden", secs);
@@ -53,71 +57,62 @@ function idset(id, string) {
   document.addEventListener("DOMContentLoaded", function() {
     stoppuhr.start();
   });
-  
-  // Setze die Bedingung für das Stoppen der Uhr
-  function checkRezept() {
-    // ... (dein vorhandener Code)
-  
-    // Prüfen Rezept [1]
-    if (rezeptDiv.innerHTML === "<p>" + RezeptArray[1] + "</p>") {
-      // Überprüfen, ob die 3 richtigen Bilder sichtbar sind
-      var sichtbarBildRez1 = bilderRezept1.every((bild) => bild.style.visibility === "visible")
-      if (sichtbarBildRez1) {
-        console.log("Aufgabe Bestanden");
-        stoppuhr.stop(); // Stoppe die Uhr 
-      } 
-    }
-    // ... (dein weiterer Code)
-  }
-  
 
+   // Aktualisiere die Stopuhr alle 1000 Millisekunden (1 Sekunde)
+   setInterval(stoppuhr.timer, 1000);
+  
+  
+// Wenn handle 13 berührt, führe checkRezept aus
   function handleTouch13() {
     console.log("handle 13 wurde berührt")
-    checkRezept();
-    resetBilder();
+      checkRezept();
 }
 
-/*
-  // Eventlistener für den Fertig_Button hinzufügen
-  document.getElementById("fertig_button").onclick = function () {
-    checkRezept();
-    resetBilder();
-  };
-  */
   
-  // Aktualisiere die Stopuhr alle 1000 Millisekunden (1 Sekunde)
-  setInterval(stoppuhr.timer, 1000);
-  
-  
-  // Starte die Stopuhr beim Laden der Seite
-  document.addEventListener("DOMContentLoaded", function() {
-    stoppuhr.start();
-  });
-  
-  
-  // Aktualisiere die Stopuhr alle 1000 Millisekunden (1 Sekunde)
-  setInterval(stoppuhr.timer, 1000);
-  
+//Anzeige, wenn falsche Zutaten ausgewählt
+function zeigeAlertWrong() {
+  var alertWrongDiv = document.querySelector(".alertWrong");
 
+  if (alertWrongDiv) {
+    // Div mit Text befüllen
+    alertWrongDiv.innerHTML = "<p>" + "Versuche es nochmal!" + "</p>";
+
+    // Nach 2 Sekunden die Fehlermeldung ausblenden
+    setTimeout(function() {
+      alertWrongDiv.innerHTML = "";
+    }, 2000);
+  }
+}
+function zeigeAlertRight() {
+  var alertRightDiv = document.querySelector(".alertRight");
+
+  if (alertRightDiv) {
+    alertRightDiv.innerHTML = "<p>" + "Richtig, Nächstes Rezept!" + "</p>";
+
+    setTimeout(function() {
+      alertRightDiv.innerHTML = "";
+    }, 2000);
+  }
+}
+
+//Rezepte Texte
 var RezeptArray = [
     '"Weiß bin ich und knochenhart, mische mich mit Rabenhaaren. Nun gibt es nicht mehr viel zu tun, mach mich zu mit Kerzenblut"',
     '"Schimmer, Glimmer und Veilchen Blätter. zuletzt ein Tuch von einem Ritter. "',
     '"Spitz und scharf bei Bedarf, Löckchen eines langen Barts. Es ist getan so soll es sein, bring den Stopfen von rotem Wein"',
-    "Herzlichen Glückwunsch, du hast deine Trank-Brauerei Prüfung bestanden!",
+    "",
   ];
   
+  // Index = Rezept Nummer
   let Index = -1;
   // Holen des RezeptDiv-Elements
   var rezeptDiv = document.getElementById("RezeptDiv");
   
   function zeigeRezeptAn() {
-    // Überprüfen, ob das Div-Element gefunden wurde
     if (rezeptDiv) {
       rezeptDiv.innerHTML = "<p>" + RezeptArray[Index] + "</p>";
-    } else {
-      console.error("Div-Element mit der ID 'RezeptDiv' wurde nicht gefunden.");
     }
-  
+    //Springen zum nächsten Array
     Index++;
   }
   
@@ -127,7 +122,7 @@ var RezeptArray = [
 
   // Image Switcher um zwischen Bildern zu wählen
     function ImageSwitcher(choices) {
-        var i = 0;
+        var i = 0; // i = nummer des momentanen Bildes im string
 
        this.Next = function () {
           hide_current_image();
@@ -147,7 +142,7 @@ var RezeptArray = [
     }
 
 
-  //Botton Funktion definiert
+  //Button Funktion definiert
   var ingredient1 = document.querySelectorAll(".ingredient1");
   var ing1_chooser = new ImageSwitcher(ingredient1);
   
@@ -169,7 +164,6 @@ var RezeptArray = [
   
 
 
-
   //Variablen für alle Bilder Rezept 1
   var zahn = document.getElementById("Zahn");
   var feder = document.getElementById("Feder");
@@ -183,32 +177,30 @@ var RezeptArray = [
   var haar = document.getElementById("Haar");
   var korken = document.getElementById("Korken");
   
+  //Welche Bilder gehören zu welchem Rezept
   var bilderRezept0 = [zahn, feder, wachs];
   var bilderRezept1 = [kristal, bluete, tuch];
   var bilderRezept2 = [kralle, haar, korken];
   
-  // Hier setzt du die Sichtbarkeit aller Bilder zurück
   bilderRezept0.forEach((bild) => (bild.style.visibility = "hidden"));
   bilderRezept1.forEach((bild) => (bild.style.visibility = "hidden"));
   bilderRezept2.forEach((bild) => (bild.style.visibility = "hidden"));
-  
-  console.log(bilderRezept0);
-  
+
+
 
   function checkRezept() {
-    // Überprüfen, ob das aktuelle Rezept angezeigt wird
     console.log("checking Rezept ...")
 
     //Wenn das div das 0.. Array enthält, wird geprüft, ob die richtigen Bilder gezeigt werden.
-    //Wenn ja, wird die nächste aufgabe angezeigt
+    
     if (rezeptDiv.innerHTML === "<p>" + RezeptArray[0] + "</p>") {
       // Überprüfen, ob die 3 richtigen Bilder sichtbar sind
       var sichtbarBildRez0 = bilderRezept0.every((bild) => bild.style.visibility === "visible")
-      if (sichtbarBildRez0) {
-        console.log("Aufgabe Bestanden");
-        zeigeRezeptAn(); // Hier könntest du das nächste Rezept anzeigen
+      if (sichtbarBildRez0) {//Wenn ja, wird die nächste aufgabe angezeigt
+        zeigeAlertRight();
+        zeigeRezeptAn();
     } else {
-        console.log ("falsche Auswahl")
+      zeigeAlertWrong();
       }
     }
   // Prüfen Rezept [1]
@@ -216,9 +208,12 @@ var RezeptArray = [
       // Überprüfen, ob die 3 richtigen Bilder sichtbar sind
       var sichtbarBildRez1 = bilderRezept1.every((bild) => bild.style.visibility === "visible")
       if (sichtbarBildRez1) {
-        console.log("Aufgabe Bestanden");
+        zeigeAlertRight();
         zeigeRezeptAn();
       } 
+      else {
+          zeigeAlertWrong();
+        }
     }
 
   // Prüfen Rezept [2]
@@ -226,67 +221,76 @@ var RezeptArray = [
     // Überprüfen, ob die 3 richtigen Bilder sichtbar sind
     var sichtbarBildRez2 = bilderRezept2.every((bild) => bild.style.visibility === "visible")
     if (sichtbarBildRez2) {
-        //stoppuhr.stop();
-      console.log("Aufgabe Bestanden");
-      hideElementsByClass('ingredient1');
-      hideElementsByClass('ingredient2');
-      hideElementsByClass('seal');
-      hideElementsByClass('Auswahl');
-      time();
-    } 
-    }
-}
-
-document.addEventListener("keydown", function(event) {
-    // Überprüfe, ob die gedrückte Taste die "i"-Taste ist
-    if (event.key === "i") {
-        // Rufe die Funktion stoppuhr.stop() auf
         stoppuhr.stop();
-        time();
-        hideElementsByClass('ingredient1');
-        hideElementsByClass('ingredient2');
-        hideElementsByClass('seal');
         hideElementsByClass('Auswahl');
-        hideElementsByClass('Rezept');
         hideElementsByClass('timer');
         zeigeRezeptAn();
-
+        time();
+        
         var congratsDiv = document.getElementById('congratsDiv');
         if (congratsDiv) {
-            console.log("congratsDiv aufgerufen")
             congratsDiv.style.visibility = 'visible';
+
+            // Random Ingredients sollen angezeigt werden
+            var ingredient1 = document.querySelectorAll(".ingredient1");
+            randomImageSwitcher(ingredient1, 700);
+
+            var ingredient2 = document.querySelectorAll(".ingredient2");
+            randomImageSwitcher(ingredient2, 800);
+
+            var seal = document.querySelectorAll(".Seal");
+            randomImageSwitcher(seal, 600);
         }
-
-    }
-})
-
-let preText = "Zeit:";
-let usedTimeDiv = document.getElementById("usedTimeDiv");
-let usedTime = stoppuhr.getMins() + " min " + stoppuhr.getSecs() + " sek";
-
-function time() {
-    if (stoppuhr.stop) {
-        console.log("Zeit angehalten");
-        let result = preText + usedTime;
-        // Setze den result-Text in das HTML-Element
-        usedTimeDiv.innerHTML = "<p>" + result + "</p>";
+    } 
+    else {
+      zeigeAlertWrong();
+      }
     }
 }
-
-  // Eventlistener für den Fertig_Button hinzufügen
-  document.getElementById("fertig_button").onclick = function () {
-    checkRezept();
-  }
-
 
 
 
 //Sobald alle Aufgaben bestanden:
 
-function hideElementsByClass(className) {
-    console.log("hideElementsByClass aufgerufen")
-    var elements = document.getElementsByClassName(className);
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.display = 'none';
+  let preText = "Zeit:"; 
+  let usedTimeDiv = document.getElementById("usedTimeDiv"); //holen des Divs
+  let usedTime = stoppuhr.getMins() + " min " + stoppuhr.getSecs() + " sek"; //anzeigen der benötigten Zeit
+
+  function time() {
+    if (stoppuhr.stop) { //Uhr wird gestoppt und die Zeit im usedTimeDiv mit zusätzlichem Text angezeigt
+        usedTime = stoppuhr.getMins() + " min " + stoppuhr.getSecs() + " sek";
+        let result = preText + usedTime;
+        usedTimeDiv.innerHTML = "<p>" + result + "</p>";
     }
-}
+  }
+
+  //nehmen des Elements zum verstecken
+  function hideElementsByClass(className) {
+      var elements = document.getElementsByClassName(className);
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = 'none';
+      }
+  }
+
+  //Wie ImageSwitcher. Anzeige nicht in der Reihenfolge, sondern zufällig
+  function randomImageSwitcher(choices, interval) {
+    var i = 0;
+
+    function showRandomImage() {
+      hide_current_image();
+      i = Math.floor(Math.random() * choices.length);
+      choices[i].style.visibility = "visible";
+    }
+
+    function hide_current_image() {
+      choices[i].style.visibility = "hidden";
+    }
+
+    // Initialisiere die Anzeige eines zufälligen Bildes
+    showRandomImage();
+
+    // Setze den Interval für die Anzeige zufälliger Bilder
+    setInterval(showRandomImage, interval);
+  }
+
+
