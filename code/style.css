@@ -1,3 +1,6 @@
+href {
+    color: white;
+}
 .html {
     background-color: blueviolet;
 }
@@ -18,7 +21,16 @@ body {
     opacity: 70%;
 }
 
-
+#startGame {
+    width: 550px;
+    position: absolute;
+    left: calc((100% - 550px)/2);
+    top: 20px;
+    font-family:Chiller, Baskerville, Calibri;
+    font-size: 18pt; 
+    color: rgb(194, 207, 207);
+    letter-spacing: 0.5px ;
+}
 .Anleitung {
     width: 550px;
     position: absolute;
@@ -64,6 +76,16 @@ body {
     left: 130px;  
 }
 
+#Hinweis{
+    color: azure;
+    position: absolute;
+    bottom: calc((100% - 150px)/2);
+    left: 40px;
+    align-self: center;
+    font-family:Chiller, Baskerville Old Face, Calibri;
+    font-size: 15pt;
+    text-align: center;
+}
 .Auswahl {
     width: 450 px;
     background-color: rgb(149, 180, 153);

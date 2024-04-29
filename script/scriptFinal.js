@@ -63,11 +63,18 @@ setInterval(stoppuhr.timer, 1000);
   
   
 // Wenn handle 13 berührt, führe checkRezept aus
-  function handleTouch13() {
-    console.log("handle 13 wurde berührt")
-      checkRezept();
-}
+  //function handleTouch13() {
+   // console.log("handle 13 wurde berührt")
+      //checkRezept();
+//}
 
+// Event-Handler für das Drücken einer Taste
+document.addEventListener("keydown", function(event) {
+  if (event.keyCode === 49)  {
+      // Ausführung der Funktion checkRezept
+      checkRezept();
+  }
+});
   
 //Anzeige, wenn falsche Zutaten ausgewählt
 function zeigeAlertWrong() {
