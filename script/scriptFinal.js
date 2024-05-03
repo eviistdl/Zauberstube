@@ -226,6 +226,7 @@ function checkRezept() {
         stoppuhr.stop();
         hideElementsByClass('Auswahl');
         hideElementsByClass('timer');
+        hideElementsByClass('Hinweis');
         zeigeRezeptAn();
         time();
         
