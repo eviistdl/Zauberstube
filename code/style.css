@@ -162,7 +162,7 @@ body {
     position: absolute;
     top: calc((100% - 400px)/2);
     left: 70px;
-    font-family:Chiller;
+    font-family:Chiller, Baskerville Old Face,  Calibri;
     font-size: 23pt;
     text-align: center;
     color: azure;
