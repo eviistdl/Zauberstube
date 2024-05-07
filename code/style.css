@@ -26,7 +26,7 @@ body {
     position: absolute;
     left: calc((100% - 550px)/2);
     top: 20px;
-    font-family:Chiller, Baskerville, Calibri;
+    font-family:Chiller, Baskerville Old Face, Calibri;
     font-size: 18pt; 
     color: rgb(194, 207, 207);
     letter-spacing: 0.5px ;
@@ -36,7 +36,7 @@ body {
     position: absolute;
     left: calc((100% - 550px)/2);
     top: 20px;
-    font-family:Chiller, Baskerville, Calibri;
+    font-family:Chiller, Baskerville Old Face, Calibri;
     font-size: 18pt; 
     color: rgb(194, 207, 207);
     letter-spacing: 0.5px ;
@@ -47,7 +47,7 @@ body {
     background-color: rgb(215, 227, 227);
     color: rgb(80, 30, 120);
     text-align: center;
-    font-family:Chiller, Baskerville, Calibri;
+    font-family:Chiller, Baskerville Old Face, Calibri;
     font-size: 18pt; 
     border-radius: 10px; 
     padding: 5px;
